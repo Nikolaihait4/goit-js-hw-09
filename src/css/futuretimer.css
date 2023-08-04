@@ -1,0 +1,77 @@
+body.timer-style {
+  text-align: center;
+  background: rgb(164, 178, 193);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  gap: 24px;
+}
+
+button {
+  font-size: 20px;
+  padding: 6px 22px;
+  color: white;
+  background-color: #569ff7;
+  cursor: pointer;
+  border: 1px solid #569ff7;
+  border-radius: 32px;
+}
+
+button:hover,
+button:focus {
+  background-color: white;
+  color: #569ff7;
+}
+
+button[disabled] {
+  background-color: #d2cce1;
+  border-color: #8276ab;
+  color: #f7f3f3;
+}
+
+#datetime-picker {
+  font-size: 20px;
+  text-align: center;
+  padding: 6px 22px;
+  margin-right: 20px;
+
+  color: #468ee4;
+  border: 1px solid #569ff7;
+  border-radius: 32px;
+}
+
+#datetime-picker[disabled] {
+  background-color: #cccccc;
+  border-color: #cccccc !important;
+  color: #c9c1e0;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.field {
+  font-size: 20px;
+  color: #f4f3f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 22px;
+  min-width: 150px;
+
+  border: 1px solid #e4e8ed;
+  border-radius: 34px;
+}
+
+.field:not(:last-child) {
+  margin-right: 20px;
+}
+
+.value {
+  font-size: 30px;
+  font-weight: 700;
+}
