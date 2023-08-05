@@ -2,14 +2,48 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
+// const startButton = document.querySelector('[data-start]');
+// startButton.disabled = true;
+// let remainingTime;
+// startButton.addEventListener('click', () => {
+//   const selectedDate = flatpickr.parseDate(
+//     document.querySelector('#datetime-picker').value
+//   );
+//   updateTimer(selectedDate);
+// });
+
+// const options = {
+//   enableTime: true,
+//   time_24hr: true,
+//   defaultDate: new Date(),
+//   minuteIncrement: 1,
+//   onClose(selectedDates) {
+//     const selectedDate = selectedDates[0];
+//     const currentDate = new Date();
+
+//     if (selectedDate <= currentDate) {
+//       Report.failure('Please choose a date in the future');
+//       return;
+//     }
+//     Report.success('Congratulation! Click on start!');
+//     const startButton = document.querySelector('[data-start]');
+//     startButton.disabled = false;
+//   },
+// };
+
+// flatpickr('#datetime-picker', options);
+
+//
+
 const startButton = document.querySelector('[data-start]');
 startButton.disabled = true;
 let remainingTime;
+let endDate;
+
 startButton.addEventListener('click', () => {
-  const selectedDate = flatpickr.parseDate(
-    document.querySelector('#datetime-picker').value
-  );
-  updateTimer(selectedDate);
+  const selectedDate = flatpickrInstance.selectedDates[0];
+  endDate = selectedDate.getTime(); // Отримання часу в мілісекундах
+  updateTimer(endDate);
 });
 
 const options = {
@@ -26,12 +60,11 @@ const options = {
       return;
     }
     Report.success('Congratulation! Click on start!');
-    // const startButton = document.querySelector('[data-start]');
     startButton.disabled = false;
   },
 };
 
-flatpickr('#datetime-picker', options);
+const flatpickrInstance = flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
